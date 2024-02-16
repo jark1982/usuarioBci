@@ -31,10 +31,9 @@ public class UsuarioServices {
 			  throw new Exception ("El susuario ya esta registrado");
 		}
 		entity.setId(newEntity.getId());
-		entity.setCreacion(new Date(millis));
-		entity.setModficacon(new Date(millis));
-		entity.setUltimooIngreso(new Date(millis));
-
+		entity.setCreacion(new Date(millis).toString());
+		entity.setModficacion(new Date(millis).toString());
+		entity.setUltimooIngreso(new Date(millis).toString());
 		return entity;
 	}
 

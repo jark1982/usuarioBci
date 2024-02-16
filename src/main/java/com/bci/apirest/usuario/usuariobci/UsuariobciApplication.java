@@ -27,8 +27,18 @@ public class UsuariobciApplication {
 				.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/token").permitAll()
-				.antMatchers(HttpMethod.POST, "/h2/**").permitAll().antMatchers(HttpMethod.GET, "/h2/**")
-	               .permitAll()
+					.antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
+					.antMatchers(HttpMethod.POST, "/swagger-ui.html").permitAll()
+
+					.antMatchers(HttpMethod.POST, "/h2/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/h2/**").permitAll()
+					.antMatchers(HttpMethod.PATCH, "/h2/**").permitAll()
+					.antMatchers(HttpMethod.PUT, "/h2/**").permitAll()
+
+					.antMatchers(HttpMethod.POST, "/v2/**").permitAll()
+					.antMatchers(HttpMethod.GET, "/v2/**").permitAll()
+					.antMatchers(HttpMethod.PATCH, "/v2/**").permitAll()
+					.antMatchers(HttpMethod.PUT, "/v2/**").permitAll()
 				.anyRequest().authenticated();
 		}
 	}
